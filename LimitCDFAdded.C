@@ -1,5 +1,5 @@
-void Limit(){
-  const int nChannels = 4;
+void LimitCDFAdded(){
+  const int nChannels = 5;
   TH1F *signal = new TH1F("signal","signal",nChannels, 0., nChannels);
   TH1F *bkg = new TH1F("bkg","bkg",nChannels, 0., nChannels);
   TH1F *data = new TH1F("data","data",nChannels, 0., nChannels);      
@@ -16,9 +16,13 @@ void Limit(){
   data->SetBinContent(3,6301);
   data->SetBinError(3,sqrt(6301));
 
- //ATLAS     doi:10.1016/j.physletb.2016.03.017
+  //ATLAS     doi:10.1016/j.physletb.2016.03.017
   data->SetBinContent(4,14677);
   data->SetBinError(4,sqrt(14677.0));
+
+  //CDF    http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.112.231805
+  data->SetBinContent(5, 4198);
+  data->SetBinError(5, sqrt(4198.0));
 
 
   //mu  7 TeV TOP-13-009
@@ -37,6 +41,10 @@ void Limit(){
   bkg->SetBinContent(4,14670);
   bkg->SetBinError(4,180);
 
+  //CDF    http://journals.aps.org/prl/pdf/10.1103/PhysRevLett.112.231805
+  bkg->SetBinContent(5, 4220);
+  bkg->SetBinError(5, 511.);
+
   float r_step = 0.05;
   int steps = 25;
   TH1F *cls = new TH1F("cls", "cls",
@@ -52,20 +60,23 @@ void Limit(){
     // float WpXS7TeV = 0.312;
     // float WpXS8TeV = 1.409;//Wp 1250 GeV
     // float WpXS7TeV = 0.914;
-    // float WpXS8TeV = 3.180;//Wp 1000 GeV 1208.4858
-    // float WpXS7TeV = 2.205;
-    float WpXS8TeV = 1.073;//Wp 1250 GeV 1208.4858
-    float WpXS7TeV = 0.694;
+    // float WpXS8TeV = 1.073;//Wp 1250 GeV 1208.4858
+    // float WpXS7TeV = 0.694;
+    float WpXS8TeV = 3.180;//Wp 1000 GeV 1208.4858
+    float WpXS7TeV = 2.205;
+    float WpXS1p96TeV = 0.035; //Wp 1000 GeV hep-ph/0207290
 
-    signal->SetBinContent(1,WpXS7TeV * (129/4.29) * i * r_step);
-    signal->SetBinContent(2,WpXS8TeV * (452/5.55) * i * r_step);   
-    signal->SetBinContent(3,WpXS8TeV * (347/5.55) * i * r_step);  
-    signal->SetBinContent(4,WpXS8TeV * (540/5.61) * i * r_step);
+    signal->SetBinContent(1, WpXS7TeV * (129/4.29) * i * r_step);
+    signal->SetBinContent(2, WpXS8TeV * (452/5.55) * i * r_step);   
+    signal->SetBinContent(3, WpXS8TeV * (347/5.55) * i * r_step);  
+    signal->SetBinContent(4, WpXS8TeV * (540/5.61) * i * r_step);
+    signal->SetBinContent(5, WpXS1p96TeV * (98/1.05) * i * r_step);
  
     signal->SetBinError(1,0.1 * signal->GetBinContent(1)); 
     signal->SetBinError(2,0.1 * signal->GetBinContent(2)); 
     signal->SetBinError(3,0.1 * signal->GetBinContent(3));
     signal->SetBinError(4,0.1 * signal->GetBinContent(4)); 
+    signal->SetBinError(5,0.1 * signal->GetBinContent(5)); 
 
     TLimitDataSource* mydatasource = new TLimitDataSource(signal,bkg,data);
     TConfidenceLevel* myconfidence = TLimit::ComputeLimit(mydatasource,50000);
