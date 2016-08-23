@@ -14,8 +14,8 @@ void LimitATLAS(){
   bkg->SetBinContent(1,14670.0);
   bkg->SetBinError(1,180.0);
 
-  float r_step = 0.05;
-  int steps = 25;
+  float r_step = 0.5;
+  int steps = 5;
   TH1F *cls = new TH1F("cls", "cls",
 		       steps, (0.5 * r_step), ((0.5 + steps) * r_step));
   for(int i = 1; i < (steps + 1); i++) {
