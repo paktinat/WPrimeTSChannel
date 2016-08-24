@@ -37,8 +37,8 @@ void Limit(){
   bkg->SetBinContent(4,14670);
   bkg->SetBinError(4,180);
 
-  float r_step = 0.5;
-  int steps = 5;
+  float r_step = 0.05;
+  int steps = 100;
   TH1F *cls = new TH1F("cls", "cls",
 		       steps, (0.5 * r_step), ((0.5 + steps) * r_step));
   for(int i = 1; i < (steps + 1); i++) {
@@ -56,6 +56,8 @@ void Limit(){
     // float WpXS7TeV = 2.205;
     float WpXS8TeV = 1.073;//Wp 1250 GeV 1208.4858
     float WpXS7TeV = 0.694;
+    //float WpXS8TeV = 1.21522;//FEWZ
+    //float WpXS7TeV = 0.791498;
 
     signal->SetBinContent(1,WpXS7TeV * (129/4.29) * i * r_step);
     signal->SetBinContent(2,WpXS8TeV * (452/5.55) * i * r_step);   
