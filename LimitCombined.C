@@ -8,21 +8,45 @@ void LimitCombined(){
   vector<float> SignalRelErr;
   vector<float*> XSec;
   
-  const int nWpMassInd = 6; //number of mass points
-  int   WpMass[nWpMassInd]         = { 1000,     1250,     1500,     1750,     2000,      2250};
+  const int nWpMassInd = 3; //number of mass points
 
-  float WpPlus8TeV[nWpMassInd]     = {0.901,     0.308,    0.115,   0.0456,   0.0187,   0.00798};//FEWZ NLO
-  float WpMinus8TeV[nWpMassInd]    = {0.347,     0.109,   0.0394,   0.0155,  0.00658,   0.00296};//FEWZ NLO
+  int   WpMass[nWpMassInd]         = { 1000,     1250,     1500};//,     1750,     2000,      2250};
 
-  float WpPlus7TeV[nWpMassInd]     = {0.640,     0.202,   0.0693,   0.0251,  0.00948,   0.00381};
-  float WpMinus7TeV[nWpMassInd]    = {0.235,    0.0696,   0.0236,  0.00878,  0.00353,   0.00153}; 
+  //SSM W' gR = 0, gL = gSM.
+  // float WpPlus8TeV[nWpMassInd]     = {0.901,     0.308,    0.115};//,   0.0456,   0.0187,   0.00798};//FEWZ NLO
+  // float WpMinus8TeV[nWpMassInd]    = {0.347,     0.109,   0.0394};//,   0.0155,  0.00658,   0.00296};//FEWZ NLO
 
-  float WpPlus1p96TeV[nWpMassInd]  = {0.00771, 0.00175, 0.000741, 0.000377, 0.000187, 0.0000709};
-  float WpMinus1p96TeV[nWpMassInd] = {0.00771, 0.00175, 0.000741, 0.000377, 0.000187, 0.0000709};
+  // float WpPlus7TeV[nWpMassInd]     = {0.640,     0.202,   0.0693};//,   0.0251,  0.00948,   0.00381};
+  // float WpMinus7TeV[nWpMassInd]    = {0.235,    0.0696,   0.0236};//,  0.00878,  0.00353,   0.00153}; 
 
-  float WpTotalWidth[nWpMassInd]   = {33.08,     41.52,    49.93,    58.34,    66.72,     75.11};//MG5_aMC_v2_4_3
-  float WpPartialWidth[nWpMassInd] = {2.788,     3.485,    4.182,    4.879,    5.576,     6.273};//MG5_aMC_v2_4_3
-  float WptbWidth[nWpMassInd]      = {7.991,    10.156,   12.297,   14.424,   16.541,    18.653};//MG5_aMC_v2_4_3
+  // float WpPlus1p96TeV[nWpMassInd]  = {0.00771, 0.00175, 0.000741};//, 0.000377, 0.000187, 0.0000709};
+  // float WpMinus1p96TeV[nWpMassInd] = {0.00771, 0.00175, 0.000741};//, 0.000377, 0.000187, 0.0000709};
+
+  // float WpTotalWidth[nWpMassInd]   = {33.08,     41.52,    49.93};//,    58.34,    66.72,     75.11};//MG5_aMC_v2_4_3
+  // float WpPartialWidth[nWpMassInd] = {2.788,     3.485,    4.182};//,    4.879,    5.576,     6.273};//MG5_aMC_v2_4_3
+  // float WptbWidth[nWpMassInd]      = {7.991,    10.156,   12.297};//,   14.424,   16.541,    18.653};//MG5_aMC_v2_4_3
+
+  //SSM W' gR = 0, gL = gSM.
+  // int   WpMass[nWpMassInd]         = { 1000,     1250,     1500};//,     1750,     2000,      2250};
+  // float WpPlus8TeV[nWpMassInd]     = {2.320,    0.800,    0.302};//,    0.122,   0.0509,    0.0221};
+  // float WpMinus8TeV[nWpMassInd]    = {0.860,    0.273,   0.0980};//,   0.0388,   0.0165,   0.00741};
+
+  // float WpPlus7TeV[nWpMassInd]     = {1.630,    0.522,    0.182};//,   0.0674,   0.0260,    0.0106};
+  // float WpMinus7TeV[nWpMassInd]    = {0.575,    0.172,   0.0582};//,   0.0216,  0.00871,   0.00377};
+
+  //Right-Handed W' gR = gSM, gL = 0.
+  float WpPlus8TeV[nWpMassInd]     = {3.080,    1.050,    0.396};//,    0.157,   0.0651,    0.0278};//1208.4858 NLO pp > W' > tb (BR is not needed.)
+  float WpMinus8TeV[nWpMassInd]    = {1.130,    0.359,    0.128};//,    0.050,   0.0208,   0.00924};//1208.4858 NLO
+
+  float WpPlus7TeV[nWpMassInd]     = {2.160,    0.689,    0.237};//,   0.0865,   0.0327,    0.0129};//1208.4858 NLO
+  float WpMinus7TeV[nWpMassInd]    = {0.760,    0.225,   0.0751};//,   0.0274,   0.0109,   0.00457};//1208.4858 NLO
+
+  float WpPlus1p96TeV[nWpMassInd]  = {0.00771, 0.00175, 0.000741};//, 0.000377, 0.000187, 0.0000709};
+  float WpMinus1p96TeV[nWpMassInd] = {0.00771, 0.00175, 0.000741};//, 0.000377, 0.000187, 0.0000709};
+
+  float WpTotalWidth[nWpMassInd]   = {    1.0,     1.0,      1.0};//,      1.0,      1.0,       1.0};
+  float WpPartialWidth[nWpMassInd] = {    1.0,     1.0,      1.0};//,      1.0,      1.0,       1.0};
+  float WptbWidth[nWpMassInd]      = {    2.0,     2.0,      2.0};//,      1.0,      1.0,       1.0};
 
   float Wp1p96TeV[nWpMassInd], Wp7TeV[nWpMassInd], Wp8TeV[nWpMassInd];
 
@@ -42,23 +66,23 @@ void LimitCombined(){
   float Expected_Minus1_r[nWpMassInd];
   float Expected_Plus1_r[nWpMassInd];
   float WpMass_x[nWpMassInd];
-
+ 
   //CMS mu 7 TeV TOP-13-009
   Data.push_back(1883.0);
   Bkg.push_back(1920.);
   BkgErr.push_back(110.);
   sChYield.push_back(129.);
   sChXSec.push_back(4.29);
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
-
+   
   //CMS mu 8 TeV TOP-13-009
   Data.push_back(7023.0);
   Bkg.push_back(7060.);
   BkgErr.push_back(370.);
   sChYield.push_back(452.);
   sChXSec.push_back(5.55);
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
 
   //CMS ele 8 TeV TOP-13-009
@@ -67,17 +91,62 @@ void LimitCombined(){
   BkgErr.push_back(320.);
   sChYield.push_back(347.);
   sChXSec.push_back(5.55);
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
-  //ATLAS     doi:10.1016/j.physletb.2016.03.017
+ 
+  //ATLAS  8 TeV    doi:10.1016/j.physletb.2016.03.017
   Data.push_back(14677.0);
   Bkg.push_back(14670.);
   BkgErr.push_back(180.);
   sChYield.push_back(540.);
   sChXSec.push_back(5.61);
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
+  /*
+  //ATLAS  7 TeV Table 6   ATLAS-CONF-2011-118
+  Data.push_back(296.0);
+  Bkg.push_back(285.);
+  BkgErr.push_back(17.);
+  sChYield.push_back(16.);
+  sChXSec.push_back(4.6);
+  SignalRelErr.push_back(0.3);
+  XSec.push_back(Wp7TeV);
+
+  //ATLAS   2j1b 7 TeV  electron Table 3  ATLAS-CONF-2011-118
+  Data.push_back(3242.0);
+  Bkg.push_back(3200.);
+  BkgErr.push_back(400.);
+  sChYield.push_back(24.);
+  sChXSec.push_back(4.6);
+  SignalRelErr.push_back(0.3);
+  XSec.push_back(Wp7TeV);
+
+  //ATLAS   2j2b 7 TeV  electron Table 3  ATLAS-CONF-2011-118
+  Data.push_back(203.0);
+  Bkg.push_back(210.);
+  BkgErr.push_back(50.);
+  sChYield.push_back(8.);
+  sChXSec.push_back(4.6);
+  SignalRelErr.push_back(0.3);
+  XSec.push_back(Wp7TeV);
+
+  //ATLAS   2j1b 7 TeV  muon Table 4  ATLAS-CONF-2011-118
+  Data.push_back(3561.0);
+  Bkg.push_back(3600.);
+  BkgErr.push_back(400.);
+  sChYield.push_back(26.);
+  sChXSec.push_back(4.6);
+  SignalRelErr.push_back(0.3);
+  XSec.push_back(Wp7TeV);
+  
+  //ATLAS   2j2b 7 TeV  muon Table 4  ATLAS-CONF-2011-118
+  Data.push_back(230.0);
+  Bkg.push_back(220.);
+  BkgErr.push_back(50.);
+  sChYield.push_back(10.);
+  sChXSec.push_back(4.6);
+  SignalRelErr.push_back(0.3);
+  XSec.push_back(Wp7TeV);
 
   //CDF 1Tb 2jets  TABLE1  doi:10.1103/PhysRevLett.115.061801
   Data.push_back(7128.0);
@@ -85,7 +154,7 @@ void LimitCombined(){
   BkgErr.push_back(908.);
   sChYield.push_back(98.);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
  //CDF 1T1Lb 2jets  TABLE1  doi:10.1103/PhysRevLett.115.061801
@@ -94,7 +163,7 @@ void LimitCombined(){
   BkgErr.push_back(64.2);
   sChYield.push_back(36.4);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
  //CDF 2Tb 2jets  TABLE1  doi:10.1103/PhysRevLett.115.061801
@@ -103,7 +172,7 @@ void LimitCombined(){
   BkgErr.push_back(43.);
   sChYield.push_back(46.1);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //CDF 1Tb 3jets  TABLE2  doi:10.1103/PhysRevLett.115.061801
@@ -112,7 +181,7 @@ void LimitCombined(){
   BkgErr.push_back(369.);
   sChYield.push_back(50.);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //CDF 1T1Lb 3jets  TABLE2  doi:10.1103/PhysRevLett.115.061801
@@ -121,7 +190,7 @@ void LimitCombined(){
   BkgErr.push_back(26.3);
   sChYield.push_back(13.3);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //CDF 2Tb 3jets  TABLE2  doi:10.1103/PhysRevLett.115.061801
@@ -130,7 +199,7 @@ void LimitCombined(){
   BkgErr.push_back(17.5);
   sChYield.push_back(16.2);
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
   
   //D0 2j1b  Table1  doi:10.1016/j.physletb.2013.09.048
@@ -139,7 +208,7 @@ void LimitCombined(){
   BkgErr.push_back(399.);
   sChYield.push_back(112);
   sChXSec.push_back(1.04);//Ref 4 of the same paper
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //D0 2j2b  Table1  doi:10.1016/j.physletb.2013.09.048
@@ -148,7 +217,7 @@ void LimitCombined(){
   BkgErr.push_back(112.);
   sChYield.push_back(83.);
   sChXSec.push_back(1.04);//Ref 4 of the same paper
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //D0 3j1b  Table1  doi:10.1016/j.physletb.2013.09.048
@@ -157,7 +226,7 @@ void LimitCombined(){
   BkgErr.push_back(243.);
   sChYield.push_back(33.);
   sChXSec.push_back(1.04);//Ref 4 of the same paper
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
   //D0 3j1b  Table1  doi:10.1016/j.physletb.2013.09.048
@@ -166,9 +235,9 @@ void LimitCombined(){
   BkgErr.push_back(164.);
   sChYield.push_back(29.);
   sChXSec.push_back(1.04);//Ref 4 of the same paper
-  SignalRelErr.push_back(0.1);
+  SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
-
+  */
   const int nChannels = Data.size();
 
   TH1F *signal = new TH1F("signal","signal",nChannels, 0., nChannels);
@@ -271,10 +340,12 @@ void LimitCombined(){
 
   TGraph *gObserved = new TGraph(nWpMassInd, WpMass_x, Observed_r);
 
+  gObserved->SetLineColor(kBlue);
   gObserved->Draw("APC");
 
   TGraph *gExpected = new TGraph(nWpMassInd, WpMass_x, Expected_r);
 
+  gExpected->SetLineColor(kRed);
   gExpected->Draw("PC");
 
   TGraph *gExpected_Plus1 = new TGraph(nWpMassInd, WpMass_x, Expected_Plus1_r);
