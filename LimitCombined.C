@@ -44,7 +44,7 @@ void LimitCombined(){
   float WpMinus1p96TeV[nWpMassInd] = {0.0771,  0.0175,   0.00771, 0.00175};//, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
 
   float WpTotalWidth[nWpMassInd]   = {    1.0,     1.0,      1.0,     1.0};//,      1.0,      1.0,      1.0};//,       1.0};
-  float WpPartialWidth[nWpMassInd] = {   50.0,    50.0,     50.0,    50.0};//,      3.0,      3.0,      3.0};//,      10.0};
+  float WpPartialWidth[nWpMassInd] = {    1.0,     1.0,      1.0,     1.0};//,      3.0,      3.0,      3.0};//,      10.0};
   float WptbWidth[nWpMassInd]      = {    1.0,     1.0,      1.0,     1.0};//,      1.0,      1.0,      1.0};//,       1.0};
 
   float Wp1p96TeV[nWpMassInd], Wp7TeV[nWpMassInd], Wp8TeV[nWpMassInd];
@@ -137,7 +137,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+ 
   //CMS ele 8 TeV TOP-13-009
   Data.push_back(6301.0);
   Bkg.push_back(6240.);
@@ -155,6 +155,7 @@ void LimitCombined(){
   sChXSec.push_back(5.61);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
+
   /*
   //ATLAS  7 TeV Table 6   ATLAS-CONF-2011-118
   Data.push_back(296.0);
@@ -282,7 +283,7 @@ void LimitCombined(){
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
 
-  //D0 3j1b  Table1  doi:10.1016/j.physletb.2013.09.048
+  //D0 3j2b  Table1  doi:10.1016/j.physletb.2013.09.048
   Data.push_back(1233.0);
   Bkg.push_back(1220.);
   BkgErr.push_back(164.);

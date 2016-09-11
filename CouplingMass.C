@@ -21,7 +21,7 @@ void CouplingMass(){
   graphObsgL->SetLineColor(4);
   graphObsgL->SetLineWidth(-701);
   
-  TLatex *tex = new TLatex(0.4,1600,"SSM W' a^{R} = 0");
+  TLatex *tex = new TLatex(0.4,1600,"Left-Handed  W' a^{R} = 0");
   tex->SetTextFont(42);
   tex->SetTextSize(0.04026846);
   tex->SetLineWidth(2);
@@ -41,7 +41,7 @@ void CouplingMass(){
   graphObsgR->SetLineColor(4);
   graphObsgR->SetLineWidth(-701);
   
-  tex = new TLatex(0.4,1600,"Right-Haned W' a^{L} = 0");
+  tex = new TLatex(0.4,1600,"Right-Handed W' a^{L} = 0");
   tex->SetTextFont(42);
   tex->SetTextSize(0.04026846);
   tex->SetLineWidth(2);
