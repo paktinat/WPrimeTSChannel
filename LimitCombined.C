@@ -27,18 +27,18 @@ void LimitCombined(){
   // float WptbWidth[nWpMassInd]      = {7.991,    10.156,   12.297,   14.424,   16.541,    18.653};//MG5_aMC_v2_4_3
 
   //SSM W' gR = 0, gL = gSM.
-  // float WpPlus8TeV[nWpMassInd]     = { 35.3,      7.78,    2.320,    0.800,    0.302,    0.122,   0.0509};//,    0.0221};//1208.4858 NLO pp > W' > tb (BR is not needed.)
-  // float WpMinus8TeV[nWpMassInd]    = { 16.8,      3.26,    0.860,    0.273,   0.0980,   0.0388,   0.0165};//,   0.00741};//1208.4858 NLO
+  float WpPlus8TeV[nWpMassInd]     = { 35.3,      7.78,    2.320,    0.800};//,    0.302,    0.122,   0.0509};//,    0.0221};//1208.4858 NLO pp > W' > tb (BR is not needed.)
+  float WpMinus8TeV[nWpMassInd]    = { 16.8,      3.26,    0.860,    0.273};//,   0.0980,   0.0388,   0.0165};//,   0.00741};//1208.4858 NLO
 
-  // float WpPlus7TeV[nWpMassInd]     = { 27.8,      5.87,    1.630,    0.522,    0.182,   0.0674,   0.0260};//,    0.0106};//1208.4858 NLO
-  // float WpMinus7TeV[nWpMassInd]    = { 12.8,      2.33,    0.575,    0.172,   0.0582,   0.0216,  0.00871};//,   0.00377};//1208.4858 NLO
+  float WpPlus7TeV[nWpMassInd]     = { 27.8,      5.87,    1.630,    0.522};//,    0.182,   0.0674,   0.0260};//,    0.0106};//1208.4858 NLO
+  float WpMinus7TeV[nWpMassInd]    = { 12.8,      2.33,    0.575,    0.172};//,   0.0582,   0.0216,  0.00871};//,   0.00377};//1208.4858 NLO
 
   //Right-Handed W' gR = gSM, gL = 0.
-  float WpPlus8TeV[nWpMassInd]     = { 47.3,     10.4,     3.080,    1.050};//,    0.396,    0.157,   0.0651};//,    0.0278};//1208.4858 NLO pp > W' > tb (BR is not needed.)
-  float WpMinus8TeV[nWpMassInd]    = { 22.5,      4.3,     1.130,    0.359};//,    0.128,    0.050,   0.0208};//,   0.00924};//1208.4858 NLO
+  //float WpPlus8TeV[nWpMassInd]     = { 47.3,     10.4,     3.080,    1.050};//,    0.396,    0.157,   0.0651};//,    0.0278};//1208.4858 NLO pp > W' > tb (BR is not needed.)
+  //float WpMinus8TeV[nWpMassInd]    = { 22.5,      4.3,     1.130,    0.359};//,    0.128,    0.050,   0.0208};//,   0.00924};//1208.4858 NLO
 
-  float WpPlus7TeV[nWpMassInd]     = { 37.6,     7.81,     2.160,    0.689};//,    0.237,   0.0865,   0.0327};//,    0.0129};//1208.4858 NLO
-  float WpMinus7TeV[nWpMassInd]    = { 17.1,     3.09,     0.760,    0.225};//,   0.0751,   0.0274,   0.0109};//,   0.00457};//1208.4858 NLO
+  //float WpPlus7TeV[nWpMassInd]     = { 37.6,     7.81,     2.160,    0.689};//,    0.237,   0.0865,   0.0327};//,    0.0129};//1208.4858 NLO
+  //float WpMinus7TeV[nWpMassInd]    = { 17.1,     3.09,     0.760,    0.225};//,   0.0751,   0.0274,   0.0109};//,   0.00457};//1208.4858 NLO
 
   float WpPlus1p96TeV[nWpMassInd]  = {0.0771,  0.0175,   0.00771, 0.00175};//, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
   float WpMinus1p96TeV[nWpMassInd] = {0.0771,  0.0175,   0.00771, 0.00175};//, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
@@ -65,7 +65,7 @@ void LimitCombined(){
   float Expected_Minus1_r[nWpMassInd];
   float Expected_Plus1_r[nWpMassInd];
   float WpMass_x[nWpMassInd];
-  
+  /*
   //CMS mu 7 TeV 2J1b TOP-13-009
   Data.push_back(14851.0);
   Bkg.push_back(14870.);
@@ -74,7 +74,7 @@ void LimitCombined(){
   sChXSec.push_back(4.29);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
-  
+ 
   //CMS mu 8 TeV 2J1b TOP-13-009
   Data.push_back(99240.0);
   Bkg.push_back(99240.);
@@ -83,7 +83,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+ 
   //CMS ele 8 TeV 2J1b TOP-13-009
   Data.push_back(73895.);
   Bkg.push_back(73900.);
@@ -110,7 +110,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+ 
   //CMS ele 8 TeV 3J2b TOP-13-009
   Data.push_back(13512.);
   Bkg.push_back(14120.);
@@ -137,7 +137,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
- 
+  
   //CMS ele 8 TeV TOP-13-009
   Data.push_back(6301.0);
   Bkg.push_back(6240.);
@@ -155,7 +155,7 @@ void LimitCombined(){
   sChXSec.push_back(5.61);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-
+  */
   /*
   //ATLAS  7 TeV Table 6   ATLAS-CONF-2011-118
   Data.push_back(296.0);
@@ -201,7 +201,8 @@ void LimitCombined(){
   sChXSec.push_back(4.6);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
-  
+  */
+ 
   //CDF 1Tb 2jets  TABLE1  doi:10.1103/PhysRevLett.115.061801
   Data.push_back(7128.0);
   Bkg.push_back(7235.);
@@ -255,7 +256,8 @@ void LimitCombined(){
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
-  
+
+  /*
   //D0 2j1b  Table1  doi:10.1016/j.physletb.2013.09.048
   Data.push_back(6859.0);
   Bkg.push_back(6952.);
