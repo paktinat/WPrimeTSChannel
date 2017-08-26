@@ -1,3 +1,8 @@
+//cd ~/CMSSW_8_0_7/src/
+//cmsenv 
+//cd ~/WPrimeTSChannel
+//root LimitCombined.C
+
 void LimitCombined(){
   
   vector<float> Data;
@@ -8,9 +13,9 @@ void LimitCombined(){
   vector<float> SignalRelErr;
   vector<float*> XSec;
   
-  const int nWpMassInd = 4; //number of mass points
+  const int nWpMassInd = 7; //number of mass points
 
-  int   WpMass[nWpMassInd]         = {  500,       750,     1000,     1250};//,     1500,     1750,     2000};//,      2250};
+  int   WpMass[nWpMassInd]         = {  500,       750,     1000,     1250,     1500,     1750,     2000};//,      2250};
 
   //SSM W' gR = 0, gL = gSM.
   // float WpPlus8TeV[nWpMassInd]     = {0.901,     0.308,    0.115,   0.0456,   0.0187,   0.00798};//FEWZ NLO
@@ -27,25 +32,25 @@ void LimitCombined(){
   // float WptbWidth[nWpMassInd]      = {7.991,    10.156,   12.297,   14.424,   16.541,    18.653};//MG5_aMC_v2_4_3
 
   //SSM W' gR = 0, gL = gSM.
-  float WpPlus8TeV[nWpMassInd]     = { 35.3,      7.78,    2.320,    0.800};//,    0.302,    0.122,   0.0509};//,    0.0221};//1208.4858 NLO pp > W' > tb (BR is not needed.)
-  float WpMinus8TeV[nWpMassInd]    = { 16.8,      3.26,    0.860,    0.273};//,   0.0980,   0.0388,   0.0165};//,   0.00741};//1208.4858 NLO
+  // float WpPlus8TeV[nWpMassInd]     = { 35.3,      7.78,    2.320,    0.800,    0.302,    0.122,   0.0509};//,    0.0221};//1208.4858 NLO pp > W' > tb (BR is not needed.)
+  // float WpMinus8TeV[nWpMassInd]    = { 16.8,      3.26,    0.860,    0.273,   0.0980,   0.0388,   0.0165};//,   0.00741};//1208.4858 NLO
 
-  float WpPlus7TeV[nWpMassInd]     = { 27.8,      5.87,    1.630,    0.522};//,    0.182,   0.0674,   0.0260};//,    0.0106};//1208.4858 NLO
-  float WpMinus7TeV[nWpMassInd]    = { 12.8,      2.33,    0.575,    0.172};//,   0.0582,   0.0216,  0.00871};//,   0.00377};//1208.4858 NLO
+  // float WpPlus7TeV[nWpMassInd]     = { 27.8,      5.87,    1.630,    0.522,    0.182,   0.0674,   0.0260};//,    0.0106};//1208.4858 NLO
+  // float WpMinus7TeV[nWpMassInd]    = { 12.8,      2.33,    0.575,    0.172,   0.0582,   0.0216,  0.00871};//,   0.00377};//1208.4858 NLO
 
   //Right-Handed W' gR = gSM, gL = 0.
-  //float WpPlus8TeV[nWpMassInd]     = { 47.3,     10.4,     3.080,    1.050};//,    0.396,    0.157,   0.0651};//,    0.0278};//1208.4858 NLO pp > W' > tb (BR is not needed.)
-  //float WpMinus8TeV[nWpMassInd]    = { 22.5,      4.3,     1.130,    0.359};//,    0.128,    0.050,   0.0208};//,   0.00924};//1208.4858 NLO
+  float WpPlus8TeV[nWpMassInd]     = { 47.3,     10.4,     3.080,    1.050,    0.396,    0.157,   0.0651};//,    0.0278};//1208.4858 NLO pp > W' > tb (BR is not needed.)
+  float WpMinus8TeV[nWpMassInd]    = { 22.5,      4.3,     1.130,    0.359,    0.128,    0.050,   0.0208};//,   0.00924};//1208.4858 NLO
 
-  //float WpPlus7TeV[nWpMassInd]     = { 37.6,     7.81,     2.160,    0.689};//,    0.237,   0.0865,   0.0327};//,    0.0129};//1208.4858 NLO
-  //float WpMinus7TeV[nWpMassInd]    = { 17.1,     3.09,     0.760,    0.225};//,   0.0751,   0.0274,   0.0109};//,   0.00457};//1208.4858 NLO
+  float WpPlus7TeV[nWpMassInd]     = { 37.6,     7.81,     2.160,    0.689,    0.237,   0.0865,   0.0327};//,    0.0129};//1208.4858 NLO
+  float WpMinus7TeV[nWpMassInd]    = { 17.1,     3.09,     0.760,    0.225,   0.0751,   0.0274,   0.0109};//,   0.00457};//1208.4858 NLO
 
-  float WpPlus1p96TeV[nWpMassInd]  = {0.0771,  0.0175,   0.00771, 0.00175};//, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
-  float WpMinus1p96TeV[nWpMassInd] = {0.0771,  0.0175,   0.00771, 0.00175};//, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
+  float WpPlus1p96TeV[nWpMassInd]  = {0.0771,  0.0175,   0.00771, 0.00175, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
+  float WpMinus1p96TeV[nWpMassInd] = {0.0771,  0.0175,   0.00771, 0.00175, 0.000741, 0.000377, 0.000187};//, 0.0000709};//First two numbers are only place holder
 
-  float WpTotalWidth[nWpMassInd]   = {    1.0,     1.0,      1.0,     1.0};//,      1.0,      1.0,      1.0};//,       1.0};
-  float WpPartialWidth[nWpMassInd] = {    1.0,     1.0,      1.0,     1.0};//,      3.0,      3.0,      3.0};//,      10.0};
-  float WptbWidth[nWpMassInd]      = {    1.0,     1.0,      1.0,     1.0};//,      1.0,      1.0,      1.0};//,       1.0};
+  float WpTotalWidth[nWpMassInd]   = {    1.0,     1.0,      1.0,     1.0,      1.0,      1.0,      1.0};//,       1.0};
+  float WpPartialWidth[nWpMassInd] = {    1.0,     1.0,      1.0,     1.0,      1.0,      1.0,      1.0};//,       1.0};
+  float WptbWidth[nWpMassInd]      = {    1.0,     1.0,      1.0,     1.0,      1.0,      1.0,      1.0};//,       1.0};
 
   float Wp1p96TeV[nWpMassInd], Wp7TeV[nWpMassInd], Wp8TeV[nWpMassInd];
 
@@ -74,7 +79,7 @@ void LimitCombined(){
   sChXSec.push_back(4.29);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
- 
+   
   //CMS mu 8 TeV 2J1b TOP-13-009
   Data.push_back(99240.0);
   Bkg.push_back(99240.);
@@ -83,7 +88,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
- 
+*/
   //CMS ele 8 TeV 2J1b TOP-13-009
   Data.push_back(73895.);
   Bkg.push_back(73900.);
@@ -92,7 +97,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+   /*
   //CMS mu 7 TeV 3J2b TOP-13-009
   Data.push_back(3848.0);
   Bkg.push_back(3730.);
@@ -101,7 +106,7 @@ void LimitCombined(){
   sChXSec.push_back(4.29);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
-  
+ 
   //CMS mu 8 TeV 3J2b TOP-13-009
   Data.push_back(16934.0);
   Bkg.push_back(16940.);
@@ -110,7 +115,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
- 
+  */
   //CMS ele 8 TeV 3J2b TOP-13-009
   Data.push_back(13512.);
   Bkg.push_back(14120.);
@@ -119,7 +124,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+ /*
   //CMS mu 7 TeV TOP-13-009
   Data.push_back(1883.0);
   Bkg.push_back(1920.);
@@ -137,7 +142,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+  */
   //CMS ele 8 TeV TOP-13-009
   Data.push_back(6301.0);
   Bkg.push_back(6240.);
@@ -146,7 +151,7 @@ void LimitCombined(){
   sChXSec.push_back(5.55);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  
+  /*
   //ATLAS  8 TeV    doi:10.1016/j.physletb.2016.03.017
   Data.push_back(14677.0);
   Bkg.push_back(14670.);
@@ -155,7 +160,7 @@ void LimitCombined(){
   sChXSec.push_back(5.61);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp8TeV);
-  */
+ */
   /*
   //ATLAS  7 TeV Table 6   ATLAS-CONF-2011-118
   Data.push_back(296.0);
@@ -201,8 +206,7 @@ void LimitCombined(){
   sChXSec.push_back(4.6);
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp7TeV);
-  */
- 
+  
   //CDF 1Tb 2jets  TABLE1  doi:10.1103/PhysRevLett.115.061801
   Data.push_back(7128.0);
   Bkg.push_back(7235.);
@@ -256,7 +260,7 @@ void LimitCombined(){
   sChXSec.push_back(1.05);//Fig 5 10.1103/PhysRevLett.112.231803
   SignalRelErr.push_back(0.3);
   XSec.push_back(Wp1p96TeV);
-
+  */
   /*
   //D0 2j1b  Table1  doi:10.1016/j.physletb.2013.09.048
   Data.push_back(6859.0);
@@ -339,10 +343,10 @@ void LimitCombined(){
    
     //    for(int i = 1; i < (steps + 1); i++) {
     int i = 1;
-
+    //Following code tries to find the sensitive range of the variable then scans that area carefully. Time consuming is almost half.
     bool Below5PerCent = false;
     bool iTwiced = false;
-    bool iHalved = true;
+    bool iHalved = false;
 
     while(!Below5PerCent){
       
@@ -369,22 +373,21 @@ void LimitCombined(){
 
       delete mydatasource;
       delete myconfidence;
-
-      if(observed < 0.05 && expected < 0.05 && expected_Plus1 < 0.05 && expected_Minus1  < 0.05 && iHalved)
+      
+      if(observed < 0.05 && expected < 0.05 && expected_Plus1 < 0.05 && expected_Minus1  < 0.05 && (i==1 || iHalved))
 	Below5PerCent = true;
       else
 	if((observed < 0.05 || expected < 0.05 || expected_Plus1 < 0.05 || expected_Minus1 < 0.05) && iTwiced){
-	    i = i/2 + 1;
-	    iTwiced = false;
-	    iHalved = true;
-	  }
-	  else{
+	  i = i/2 + 1;
+	  iTwiced = false;
+	  iHalved = true;
+	}
+	else{
 	    if(!iHalved){
-	    i *= 2;
-	    iTwiced = true;
+	      i *= 2;
+	      iTwiced = true;
 	    }
-	  }	   
-      
+	}
       i++;
     }
     sprintf(buf,"Canvas_%d", WpMass[wpMassInd]);   
@@ -395,7 +398,7 @@ void LimitCombined(){
     Expected[wpMassInd]->Draw("same");
    
     WpMass_x[wpMassInd] = WpMass[wpMassInd] * 1.0;
-    
+    cout<<" WpMass "<<WpMass[wpMassInd]<<endl;
     Int_t last = Observed[wpMassInd]->FindLastBinAbove(0.05);
     std::cout << "   last = Observed  : " << last  << std::endl;
     Observed_r[wpMassInd] = Observed[wpMassInd]->GetBinLowEdge(last) + Observed[wpMassInd]->GetBinWidth(last);
